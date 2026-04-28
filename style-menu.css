@@ -1,0 +1,140 @@
+/* Reaproveitando os estilos base do Projeto BO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+.fundo-tela {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.janela-software {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.janela-cabecalho {
+    background: linear-gradient(to top, rgb(2, 99, 162), rgb(51, 156, 222));
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.janela-titulo {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Estilização do Corpo do Menu */
+.janela-corpo {
+    padding: 30px;
+}
+
+.boas-vindas {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 15px;
+    border-left: 4px solid #003366;
+    padding-left: 10px;
+}
+
+.grid-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo dos Cards Interativos */
+.card-menu {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.card-menu:hover {
+    background-color: #ffffff;
+    border-color: #003366;  /*rgb(2, 99, 162) */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icone-card {
+    width: 50px;
+    height: 50px;
+    background-color: #e6eeff;
+    color: #003366; /*rgb(2, 99, 162) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.info-card {
+    flex-grow: 1;
+}
+
+.titulo-card {
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    color: #003366;  /*rgb(2, 99, 162) */
+    
+    margin-bottom: 4px;
+}
+
+.desc-card {
+    font-size: 13px;
+    color: #777;
+}
+
+.seta-link {
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.card-menu:hover .seta-link {
+    color: #003366;
+}
+
+/* Rodapé da Janela */
+.janela-rodape {
+    background-color: #f1f1f1;
+    padding: 8px 20px;
+    font-size: 11px;
+    color: #888;
+    text-align: right;
+    border-top: 1px solid #eee;
+}
+
+/* Responsividade Básica */
+@media (max-width: 480px) {
+    .icone-card {
+        display: none;
+    }
+}

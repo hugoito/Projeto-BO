@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Sybase IQ</title>
+    <link rel="stylesheet" href="styleSybaseIQ.css">
+</head>
+
+<body>
+    <div class="fundo-tela">
+
+        <div class="janela-software">
+
+            <div class="janela-cabecalho">
+                <span class="janela-titulo">Acesso Sybase IQ e tabelas</span>
+                <button class="janela-fechar">X</button>
+            </div>
+
+            <div class="janela-corpo">
+
+                <form action="">
+                    <fieldset>
+
+                        <div class="bloco-pergunta" id="container-opcao-btn">
+
+                            <label><b>Selecione a opção desejada</b><span class="obrigatoria">*</span></label>
+
+                            <input type="radio" name="opcao-btn" id="sybase_btn" onclick="gerenciarFormulario()">
+                            <label for="sybase_btn">Obter Acesso no Sybase IQ</label>
+
+                            <input type="radio" name="opcao-btn" id="tabelas_btn" onclick="gerenciarFormulario()">
+                            <label for="tabelas_btn">Obter acesso as tabelas</label>
+
+                        </div>
+
+                        <div class="escondido" id="container_sybase">
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_login"><b>Informe o login</b><span
+                                        class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_login" id="informar_login">
+                            </div>
+
+                            <div class="bloco-pergunta campo bloqueado">
+                                <label for="informar_UA"><b>UA:</b></label>
+                                <input class="campo-bloqueado" type="text" name="informar_UA" id="informar_UA" readonly>
+                            </div>
+
+                            <div class="bloco-pergunta" id="check">
+                                <input type="checkbox" name="informar_ciencia" id="informar_ciencia">
+                                <label for="informar_ciencia"><b>Tenho ciência de que a solicitação não será atendida
+                                        caso a autorização assinada digitalmente pelo Diretor não seja anexada ao
+                                        chamado
+                                    </b><span class="obrigatoria">*</span></label>
+                            </div>
+
+                        </div>
+
+                        <div class="escondido" id="container_tabelas">
+
+                            <div class="bloco-pergunta ">
+                                <label for="quantidade"><b>Selecionar quantidade de usuários</b><span
+                                        class="obrigatoria">*</span></label>
+                                <div class="opcoes">
+                                    <select name="quantidade" id="quantidade">
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="qtn_1">1</option>
+                                        <option value="qtn_2">2</option>
+                                        <option value="qtn_3">3</option>
+                                        <option value="qtn_4">4</option>
+                                        <option value="qtn_5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div id="container_usuarios_dinamicos"></div>
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_univ"> <b>Informe o nome do universo ao qual as tabelas solicitadas
+                                        pertence</b><span class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_univ" id="informar_univ">
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="Informar_justificativa"> <b>Descreva detalhadamente a necessidade de acesso
+                                        a estas tabelas</b><span class="obrigatoria">*</span></label>
+                                <input type="text" name="Informar_justificativa" id="Informar_justificativa">
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="Informar_telefone"> <b>Informe um telefonema para contato</b><span
+                                        class="obrigatoria">*</span></label>
+                                <input type="tel" name="Informar_telefone" id="Informar_telefone">
+                            </div>
+
+                            <div class="bloco-pergunta" id="check_1">
+                                <input type="checkbox" name="informar_ciencia_1" id="informar_ciencia_1">
+                                <label for="informar_ciencia_1"><b>Tenho ciência de que a solicitação não será atendida
+                                        caso a autorização assinada digitalmente pelo Diretor não seja anexada ao
+                                        chamado
+                                    </b><span class="obrigatoria">*</span></label>
+                            </div>
+
+                        </div>
+                    </fieldset>
+                    <div class="botoes-rodape">
+                        <input type="submit" value="Enviar" class="btn-padrao">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================
+        // 1. Mostrar/Esconder os containers baseados nos botões
+        // =========================================================
+        function gerenciarFormulario() {
+            const console_sybase = document.getElementById('container_sybase');
+            const console_tabelas = document.getElementById('container_tabelas');
+            const sybase_btn = document.getElementById('sybase_btn');
+            const tabelas_btn = document.getElementById('tabelas_btn');
+
+            if (sybase_btn.checked) {
+                console_sybase.classList.remove('escondido');
+                console_tabelas.classList.add('escondido');
+
+                // Quando entra no Sybase, limpa tudo que é do container de Tabelas
+                limparCamposNoContainer('container_tabelas');
+            } else if (tabelas_btn.checked) {
+                console_tabelas.classList.remove('escondido');
+                console_sybase.classList.add('escondido');
+
+                // Quando entra nas Tabelas, limpa tudo é do container do Sybase
+                limparCamposNoContainer('container_sybase');
+            }
+        }
+
+        // =========================================================
+        // NOVO:  Limpeza de Campos "Genericos de cada container"
+        // =========================================================
+        function limparCamposNoContainer(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            // 1. Limpar todos os Inputs text, tel...
+            const inputs = container.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    input.checked = false; // Desmarca caixas de seleção
+                } else {
+                    input.value = ''; // Limpa textos e números
+                }
+            });
+
+            // 2. Limpar todos os Selects 
+            const selects = container.querySelectorAll('select');
+            selects.forEach(select => {
+                select.selectedIndex = 0;
+            });
+
+            // Limpar tabelas dos campos "Dinamicos"
+            if (containerId === 'container_tabelas') {
+                const containerDinamico = document.getElementById('container_usuarios_dinamicos');
+                if (containerDinamico) {
+                    containerDinamico.innerHTML = '';
+                }
+            }
+        }
+        // =========================================================
+        // 2. Autopreenchimento da UA 
+        // =========================================================
+        const inputLoginSybase = document.getElementById('informar_login');
+        const inputUASybase = document.getElementById('informar_UA');
+
+        if (inputLoginSybase) {
+            inputLoginSybase.addEventListener('blur', function () {
+                const loginDigitado = this.value.toLowerCase().trim();
+
+                if (loginDigitado === 'hmnascimento') {
+                    inputUASybase.value = '35241 - ASSISTÊNCIA DE EQUIPAMENTOS APLICAÇÕES AO USUÁRIO';
+                } else {
+                    inputUASybase.value = '';
+                }
+            });
+        }
+
+        // =========================================================
+        // 3. Criação dinâmica de campos de acordo com a quantidade seleciona  no Select
+        // =========================================================
+        const selectQuantidade = document.getElementById('quantidade');
+        const containerDinamicos = document.getElementById('container_usuarios_dinamicos');
+
+        if (selectQuantidade) {
+            selectQuantidade.addEventListener('change', function () {
+                containerDinamicos.innerHTML = ''; // Limpa os campos se trocar a quantidade
+
+                let opcaoSelecionada = this.value;
+                let quantidade = parseInt(opcaoSelecionada.replace('qtn_', ''));
+
+                for (let i = 1; i <= quantidade; i++) {
+
+                    const blocosHTML = `
+                        <div class="bloco-pergunta">
+                            <label for="login_tabelas_${i}"><b>Informe o login (Usuário ${i})</b><span class="obrigatoria">*</span></label>
+                            <input type="text" name="login_tabelas_${i}" id="login_tabelas_${i}" class="login-dinamico">
+                        </div>
+
+                        <div class="bloco-pergunta campo bloqueado">
+                            <label for="ua_tabelas_${i}"><b>UA:</b></label>
+                            <input class="campo-bloqueado" type="text" name="ua_tabelas_${i}" id="ua_tabelas_${i}" readonly>
+                        </div>
+                    `;
+                    containerDinamicos.innerHTML += blocosHTML;
+                }
+
+                //  Evento de autopreenchimento para os novos campos criados
+                ativarAutoPreenchimentoUADinamico();
+            });
+        }
+
+        // =========================================================
+        // 4. Autopreenchimento da UA nos campos Dinâmicos do container Tabelas
+        // =========================================================
+        function ativarAutoPreenchimentoUADinamico() {
+            const camposDeLogin = document.querySelectorAll('.login-dinamico');
+
+            camposDeLogin.forEach(function (campo) {
+                campo.addEventListener('blur', function () {
+                    const idDoCampo = this.id;
+                    const numeroUsuario = idDoCampo.split('_')[2];
+
+                    const campoUACorrespondente = document.getElementById(`ua_tabelas_${numeroUsuario}`);
+                    const loginDigitado = this.value.toLowerCase().trim();
+
+                    if (loginDigitado === 'hmnascimento') {
+                        campoUACorrespondente.value = '35241 - ASSISTÊNCIA DE EQUIPAMENTOS APLICAÇÕES AO USUÁRIO';
+                    } else {
+                        campoUACorrespondente.value = '';
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

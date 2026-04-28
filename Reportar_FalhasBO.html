@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitações de Acesso e Execução de Relatórios</title>
+    <link rel="stylesheet" href="style-AcessoRelat.css">
+</head>
+
+<body>
+
+    <div class="fundo-tela">
+
+        <div class="janela-software">
+
+            <div class="janela-cabecalho">
+                <span class="janela-titulo">Reportar Falha - BO Correções de Dados no Universo BO</span>
+                <button class="janela-fechar">X</button>
+            </div>
+
+            <div class="janela-corpo">
+
+                <form action="">
+                    <fieldset>
+
+                        <div class="bloco-pergunta" id="container-opcao-btn">
+                            <label><b>Selecione a opção desejada</b><span class="obrigatoria">*</span></label>
+
+                            <input type="radio" name="opcao-btn" id="launch_btn" onclick="gerenciarFormulario()">
+                            <label for="launch_btn">Corrigir dados/Universo</label>
+                            
+                            <input type="radio" name="opcao-btn" id="relatorio_btn" onclick="gerenciarFormulario()">
+                            <label for="relatorio_btn">Erro no BO</label>
+                        </div>
+
+                        <div class="escondido" id="container_relatorio_perguntas">
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_relatorio"><b>Informe o nome do universo</b><span class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_relatorio" id="informar_relatorio">
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_login_relatorio"><b>Informe o login</b><span class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_login_relatorio" id="informar_login_relatorio">
+                            </div>
+
+                            <div class="bloco-pergunta campo bloqueado">
+                                <label for="informar_UA_relatorio"><b>UA:</b></label>
+                                <input class="campo-bloqueado" type="text" name="informar_UA_relatorio" id="informar_UA_relatorio" readonly>
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="localidade_relatorio"><b>Selecionar sua localização</b><span class="obrigatoria">*</span></label>
+                                <div class="opcoes">
+                                    <select name="localidade_relatorio" id="localidade_relatorio">
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="Sede">Sede</option>
+                                        <option value="Lapa">Lapa</option>
+                                        <option value="Tatuape">Tatuape</option>
+                                        <option value="Campinas">Campinas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_localizao_relatorio"><b>Informar andar/ala</b><span class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_localizao_relatorio" id="informar_localizao_relatorio">
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_telefone_relatorio"><b>Informe um telefone para contacto</b><span class="obrigatoria">*</span></label>
+                                <input type="tel" name="informar_telefone_relatorio" id="informar_telefone_relatorio" placeholder="(99) 99999-9999">
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="alterar_univ_relatorio"><b>Descreva a Alteração</b><span class="obrigatoria">*</span></label>
+                                <textarea name="alterar_univ_relatorio" id="alterar_univ_relatorio" rows="4"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="escondido" id="container_launch_perguntas">
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_login_launch"><b>Informe o login</b><span class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_login_launch" id="informar_login_launch">
+                            </div>
+
+                            <div class="bloco-pergunta campo bloqueado">
+                                <label for="informar_UA_launch"><b>UA:</b></label>
+                                <input class="campo-bloqueado" type="text" name="informar_UA_launch" id="informar_UA_launch" readonly>
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="localidade_launch"><b>Selecionar sua localização</b><span class="obrigatoria">*</span></label>
+                                <div class="opcoes">
+                                    <select name="localidade_launch" id="localidade_launch">
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="Sede">Sede</option>
+                                        <option value="Lapa">Lapa</option>
+                                        <option value="Tatuape">Tatuape</option>
+                                        <option value="Campinas">Campinas</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_localizao_launch"><b>Informar andar/ala</b><span class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_localizao_launch" id="informar_localizao_launch">
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_telefone_launch"><b>Informe um telefone para contacto</b><span class="obrigatoria">*</span></label>
+                                <input type="tel" name="informar_telefone_launch" id="informar_telefone_launch" placeholder="(99) 99999-9999">
+                            </div>
+
+                            <div class="bloco-pergunta">
+                                <label for="alterar_univ_launch"><b>Descreva a Alteração</b><span class="obrigatoria">*</span></label>
+                                <textarea name="alterar_univ_launch" id="alterar_univ_launch" rows="4"></textarea>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                    <div class="botoes-rodape">
+                        <input type="submit" value="Enviar" class="btn-padrao">
+                    </div>
+                </form>
+
+                <script>
+                    function gerenciarFormulario() {
+                        // 1. Capturar os botões
+                        const btnLaunch = document.getElementById('launch_btn').checked;
+                        const btnRelatorio = document.getElementById('relatorio_btn').checked;
+
+                        // 2. Capturar os contentores
+                        const container_launch = document.getElementById('container_launch_perguntas');
+                        const container_relatorio = document.getElementById('container_relatorio_perguntas');
+
+                        // 3. Lógica para "Corrigir dados/Universo"
+                        if (btnLaunch) {
+                            container_launch.classList.remove('escondido');
+                        } else {
+                            container_launch.classList.add('escondido');
+                            limparCamposNoContainer('container_launch_perguntas');
+                        }
+
+                        // 4. Lógica para "Erro no BO"
+                        if (btnRelatorio) {
+                            container_relatorio.classList.remove('escondido');
+                        } else {
+                            container_relatorio.classList.add('escondido');
+                            limparCamposNoContainer('container_relatorio_perguntas');
+                        }
+                    }
+
+                    // Função genérica de Limpeza
+                    function limparCamposNoContainer(containerId) {
+                        const container = document.getElementById(containerId);
+                        if (!container) return;
+                        
+                        // Seleciona inputs (exceto botões de rádio e submit), selects e textareas
+                        const campos = container.querySelectorAll('input:not([type="radio"]):not([type="button"]):not([type="submit"]), select, textarea');
+                        
+                        campos.forEach(campo => {
+                            if (campo.type === 'checkbox') {
+                                campo.checked = false;
+                            } else {
+                                campo.value = '';
+                            }
+                        });
+                    }
+
+                    // Lógica para puxar a UA nos dois blocos
+                    const campoLoginRelatorio = document.getElementById('informar_login_relatorio');
+                    const campoUaRelatorio = document.getElementById('informar_UA_relatorio');
+
+                    const campoLoginLaunch = document.getElementById('informar_login_launch');
+                    const campoUaLaunch = document.getElementById('informar_UA_launch');
+
+                    function preencherUA(campoDeLogin, campoDeUa) {
+                        if (!campoDeLogin || !campoDeUa) return;
+
+                        const loginDigitado = campoDeLogin.value.toLowerCase().trim();
+                        if (loginDigitado === 'hmnascimento') {
+                            campoDeUa.value = '35241 - ASSISTÊNCIA DE EQUIPAMENTOS APLICAÇÕES AO USUÁRIO';
+                        } else {
+                            campoDeUa.value = '';
+                        }
+                    }
+
+                    // Ativar escuta (blur) para o Bloco 1
+                    if (campoLoginRelatorio) {
+                        campoLoginRelatorio.addEventListener('blur', function () {
+                            preencherUA(campoLoginRelatorio, campoUaRelatorio);
+                        });
+                    }
+
+                    // Ativar escuta (blur) para o Bloco 2
+                    if (campoLoginLaunch) {
+                        campoLoginLaunch.addEventListener('blur', function () {
+                            preencherUA(campoLoginLaunch, campoUaLaunch);
+                        });
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

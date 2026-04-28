@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitações de Acesso e Execução de Relatórios</title>
+    <link rel="stylesheet" href="style-AcessoRelat.css">
+</head>
+
+<body>
+
+    <div class="fundo-tela">
+
+        <div class="janela-software">
+
+            <div class="janela-cabecalho">
+                <span class="janela-titulo">Solicitações de Acesso e Execução de Relatórios</span>
+                <button class="janela-fechar">X</button>
+
+
+            </div>
+
+            <div class="janela-corpo">
+
+                <form action="">
+                    <fieldset>
+
+                        <div class="bloco-pergunta" id="container-opcao-btn">
+
+                            <label><b>Selecione a opção desejada</b><span class="obrigatoria">*</span></label>
+
+                            <input type="radio" name="opcao-btn" id="launch_btn" onclick="gerenciarFormulario()">
+                            <label for="launch_btn">Launch pad</label>
+                            <input type="radio" name="opcao-btn" id="relatorio_btn" onclick="gerenciarFormulario()">
+                            <label for="relatorio_btn">Relatórios</label>
+
+                        </div>
+
+                        <!--Launch Pad -->
+                        <div class="bloco-pergunta escondido " id="container_launch">
+                            <label> <b>Selecione o Tipo de Solicitação</b> <span class="obrigatoria">*</span></label>
+
+                            <input type="radio" name="launch_btn" id="launch_btn_acesso"
+                                onclick="gerenciarFormulario()">
+                            <label for="launch_btn_acesso">Obter Acesso ao Launch pad</label>
+                            <input type="radio" name="launch_btn" id="launch_btn_perfil"
+                                onclick="gerenciarFormulario()">
+                            <label for="launch_btn_perfil">Mudar perfil (DRT) Launch pad</label>
+                        </div>
+
+
+
+                        <!--Relatórios-->
+                        <div class="bloco-pergunta escondido " id="container_relatorio">
+                            <label> <b>Selecione o Tipo de Solicitação</b> <span class="obrigatoria">*</span></label>
+
+                            <input type="radio" name="relatorio_btn" id="relatorio_btn_acesso"
+                                onclick="gerenciarFormulario()">
+                            <label for="relatorio_btn_acesso">Obter Acesso ao relatório Launch pad</label>
+                            <input type="radio" name="relatorio_btn" id="relatorio_btn_exec"
+                                onclick="gerenciarFormulario()">
+                            <label for="relatorio_btn_exec">Solic. Execução relatório Launch pad</label>
+                        </div>
+
+                        <!--Perguntas Forms -->
+
+
+                        <div class="bloco-pergunta escondido" id="container_relatorio_pergunta">
+                            <label for="informar_relatorio"><b>Informe o nome do relatorio</b><span
+                                    class="obrigatoria">*</span></label>
+                            <input type="text" name="informar_relatorio" id="informar_relatorio">
+
+                        </div>
+
+                        <div class=" escondido" id="container_launch_perguntas">
+
+                            <div class="bloco-pergunta">
+                                <label for="informar_login"><b>Informe o login</b><span
+                                        class="obrigatoria">*</span></label>
+                                <input type="text" name="informar_login" id="informar_login">
+
+                            </div>
+
+                            <div class="bloco-pergunta campo bloqueado">
+
+                                <label for="informar_UA"><b>UA:</b></label>
+                                <input class="campo-bloqueado" type="text" name="informar_UA" id="informar_UA" readonly>
+                                <!--Criar depois uma lógica para aparecer minha UA quando digitar meu login hmnascimento no informe o login.-->
+                            </div>
+
+                            <div class="bloco-pergunta ">
+                                <label for="localidade"><b>Selecionar sua localização</b><span
+                                        class="obrigatoria">*</span></label>
+                                <div class="opcoes">
+                                    <select name="localidade" id="localidade">
+                                        <option value="" disabled selected hidden></option>
+                                        <option value="Sede">Sede</option>
+                                        <option value="Lapa">Lapa</option>
+                                        <option value="Tatuape">Tatuape</option>
+                                        <option value="Campinas">Campinas</option>
+
+
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                    <div class="botoes-rodape">
+                        <input type="submit" value="Enviar" class="btn-padrao">
+                    </div>
+                </form>
+
+                <script>
+
+                    function gerenciarFormulario() {
+                        // Launchpad
+
+                        //Containers
+                        const container_launch = document.getElementById('container_launch');
+                        const container_launch_perguntas = document.getElementById('container_launch_perguntas');
+                        const container_relatorio = document.getElementById('container_relatorio');
+                        const container_relatorio_pergunta = document.getElementById('container_relatorio_pergunta');
+
+                        const relatorio_btn = document.getElementById('relatorio_btn').checked;
+                        const launch_btn = document.getElementById('launch_btn').checked;
+
+                        if (launch_btn) {
+                            container_launch.classList.remove('escondido');
+                            container_relatorio.classList.add('escondido');
+
+                            document.getElementById('relatorio_btn_exec').checked = false;
+                            document.getElementById('relatorio_btn_acesso').checked = false;
+
+
+
+                        } else if (relatorio_btn) {
+                            container_relatorio.classList.remove('escondido');
+                            container_launch.classList.add('escondido');
+
+                            document.getElementById('launch_btn_perfil').checked = false;
+                            document.getElementById('launch_btn_acesso').checked = false;
+
+                        }
+                        //botões
+
+                        const launch_btn_perfil = document.getElementById('launch_btn_perfil').checked;
+                        const launch_btn_acesso = document.getElementById('launch_btn_acesso').checked;
+
+                        const relatorio_btn_exec = document.getElementById('relatorio_btn_exec').checked;
+                        const relatorio_btn_acesso = document.getElementById('relatorio_btn_acesso').checked;
+
+
+                        if (launch_btn_perfil || launch_btn_acesso || relatorio_btn_acesso || relatorio_btn_exec) {
+                            container_launch_perguntas.classList.remove('escondido');
+
+
+
+                        } else {
+                            container_launch_perguntas.classList.add('escondido');
+
+                            document.getElementById('informar_login').value = '';
+                            document.getElementById('informar_UA').value = '';
+                            document.getElementById('localidade').value = '';
+                        }
+
+
+                        if (relatorio_btn_acesso || relatorio_btn_exec) {
+
+                            container_relatorio_pergunta.classList.remove('escondido');
+
+                        } else {
+                            container_relatorio_pergunta.classList.add('escondido');
+                            document.getElementById('informar_relatorio').value = '';
+                        }
+
+
+                    }
+
+
+                    // Função capturar UA:
+                    const campoLogin = document.getElementById('informar_login');
+                    const campoUa = document.getElementById('informar_UA');
+                    
+
+                    campoLogin.addEventListener('blur', function () {
+
+                        const loginDigitado = campoLogin.value.toLowerCase().trim();
+
+
+                        if (loginDigitado === 'hmnascimento') {
+
+                            campoUa.value = '35241 - ASSISTÊNCIA DE EQUIPAMENTOS APLICAÇÕES AO USUÁRIO';
+
+                        } else {
+                            campoUa.value = '';
+                        }
+                    })
+
+
+                </script>
+
+</body>
+
+</html>

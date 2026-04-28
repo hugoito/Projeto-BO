@@ -1,0 +1,176 @@
+/* ========================================================= */
+/* RESET GERAL E FONTES                                      */
+/* ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+}
+
+/* ========================================================= */
+/* ESTRUTURA DA TELA E JANELA                                */
+/* ========================================================= */
+.fundo-tela {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.janela-software {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.janela-cabecalho {
+    background-color: #003366; /* Cor padrão azul corporativo */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.janela-titulo {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.janela-fechar {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.janela-fechar:hover {
+    color: #ff4c4c;
+}
+
+.janela-corpo {
+    padding: 20px;
+}
+
+fieldset {
+    border: none;
+}
+
+/* ========================================================= */
+/* CLASSE VITAL PARA O JAVASCRIPT                            */
+/* ========================================================= */
+.escondido {
+    display: none !important;
+}
+
+/* ========================================================= */
+/* FORMULÁRIO E CAMPOS                                       */
+/* ========================================================= */
+.bloco-pergunta {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bloco-pergunta label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.obrigatoria {
+    color: red;
+    margin-left: 3px;
+}
+
+input[type="text"],
+input[type="tel"],
+select,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #003366;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Estilo específico para botões de rádio */
+#container-opcao-btn {
+    display: block; /* Tira o flex-column para os rádios ficarem na mesma linha */
+}
+
+#container-opcao-btn input[type="radio"] {
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+#container-opcao-btn label[for="launch_btn"],
+#container-opcao-btn label[for="relatorio_btn"] {
+    margin-right: 20px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+/* ========================================================= */
+/* CAMPOS BLOQUEADOS (Ex: UA)                                */
+/* ========================================================= */
+.campo-bloqueado {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.campo-bloqueado:focus {
+    border-color: #ccc !important; /* Mantém a borda cinza mesmo ao clicar */
+}
+
+/* ========================================================= */
+/* RODAPÉ E BOTÕES                                           */
+/* ========================================================= */
+.botoes-rodape {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.btn-padrao {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-padrao:hover {
+    background-color: #002244;
+}

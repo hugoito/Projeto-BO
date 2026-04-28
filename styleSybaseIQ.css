@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #d1d5db; /* Um fundo cinza escuro para a "janela" saltar aos olhos */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    font-size: 8pt;
+    color: #333;
+}
+
+/* 2. A Janela Principal */
+.janela-software {
+    width: 100%;
+    max-width: 800px; /* Largura máxima da janela */
+    margin: 0 auto; /* Centraliza na tela */
+    background-color: #f3f4f6; /* Fundo cinza bem clarinho (padrão software) */
+    border: 1px solid #1e3a8a; /* Borda externa da cor do cabeçalho */
+    border-radius: 6px; /* Cantos levemente arredondados */
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3); /* Sombra para dar o efeito 3D de janela flutuante */
+    overflow: hidden; /* Garante que nada vaze das bordas arredondadas */
+}
+
+/* 3. A Barra de Título (Cabeçalho) */
+.janela-cabecalho {
+    background: linear-gradient(to top, rgb(2, 99, 162), rgb(51, 156, 222)); /* Azul corporativo clássico */
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between; /* Empurra o título para esquerda e o X para direita */
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* 4. Botão Fechar do Cabeçalho */
+.janela-fechar {
+    /*background-color: #dc2626; /* Vermelho */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(to top, rgb(2, 99, 162), rgb(51, 156, 222));
+} 
+
+.janela-fechar:hover {
+    background-color: #b91c1c; /* Fica mais escuro ao passar o mouse */
+}
+
+/* 5. O Espaço Interno da Janela */
+.janela-corpo {
+    padding: 20px 25px;
+}
+
+/* 6. A Borda de Agrupamento (Fieldset) */
+fieldset {
+    border: 1px solid #cbd5e1; /* Borda cinza suave */
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff; /* Fundo branco para os inputs destacarem do cinza da janela */
+}
+
+/* Se você for usar <legend> para subtítulos dentro da janela */
+legend {
+    background-color: #f3f4f6;
+    padding: 0 10px;
+    color: #475569;
+    font-weight: bold;
+    border: 1px solid #cbd5e1;
+    border-radius: 3px;
+}
+
+/* 7. O Botão de Enviar */
+.botoes-rodape {
+    display: flex;
+    justify-content: flex-end; /* Joga o botão para o canto direito */
+    margin-top: 20px;
+}
+
+.btn-padrao {
+    background-color: #cfd2cfa4; /* Verde confirmação */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-padrao:hover {
+    background-color: #6b6b67;
+}
+
+.bloco-pergunta {
+    display:flex;
+    flex-direction: row; 
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 15px;
+}
+
+.bloco-pergunta {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 15px;
+}
+
+.obrigatoria {
+    color: red;
+    font: bold;
+}
+
+.escondido {
+    display: none !important;
+}
+
+
+.campo-bloqueado {
+    background-color: #e9ecef; /* Um tom de cinza claro clássico de sistemas */
+    color: #6c757d; /* O texto fica um pouco mais opaco/cinza escuro */
+    border: 1px solid #ced4da; /* Borda padrão suave */
+    cursor: not-allowed; /* Muda o mouse para um símbolo de "proibido" ao passar por cima */
+    width: 60%;
+    font-size: 12px;
+}
+
+select{
+    width: 200px;
+}
+

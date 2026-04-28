@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Solicitações Universo e WebIntelligence/Rich Client</title>
+</head>
+<body>
+
+    <div class="fundo-tela">
+
+    <div class="janela-software">
+        
+        <div class="janela-cabecalho">
+            <span class="janela-titulo">Solicitações Universo e WebIntelligence/Rich Client</span>
+            <button class="janela-fechar">X</button>
+            
+    
+        </div>
+
+        <div class="janela-corpo">
+            
+            <form action="">
+                <fieldset>
+                    
+                <div class="bloco-pergunta" id="container-opcao-btn">
+
+                    <label><b>Selecione a opção desejada</b><span class="obrigatoria">*</span></label>
+
+                    <input type="radio" name="opcao-btn" id="btn-univ_webInteligence" onclick="gerenciarFormulario()">
+                    <label for="btn-univ_webInteligence">Universo e WebIntelligence</label>
+                    <input type="radio" name="opcao-btn" id="btn-rich_client" onclick="gerenciarFormulario()">
+                    <label for="btn-rich_client">Rich Client</label>
+
+                </div>
+                <!-- Necessário inserir uma condinção para manter abrir as opções referente a univer ou Rich client.-->
+
+                <!--Universo e WebIntelligence-->
+                <div class="bloco-pergunta escondido " id="container_univweb">
+                    <label> <b>Selecione o Tipo de Solicitação</b> <span class="obrigatoria">*</span></label>
+
+                    <input type="radio" name="opcao-btn-unv" id="btn-criar_universo" onclick="gerenciarFormulario()">
+                    <label for="btn-criar_universo">Criar Novo Universo</label>
+                    <input type="radio" name="opcao-btn-unv" id="btn-obter_universo" onclick="gerenciarFormulario()">
+                    <label for="btn-obter_universo">Obter Acesso a Universo</label>
+                    <input type="radio" name="opcao-btn-unv" id="btn-alterar_universo" onclick="gerenciarFormulario()">
+                    <label for="btn-alterar_universo">Solicitar Alteracao Universo</label>
+
+
+                </div>
+                <!--Criar Universo-->
+                <div class="bloco-pergunta escondido  " id="container_univweb_criar">
+                    <label for="informar-univ"><b>Informe o nome do universo para a ser criado</b><span
+                            class="obrigatoria">*</span></label>
+                    <input type="text" name="informar-univ" id="informar-univ">
+
+                </div>
+
+
+                <!--Obter Acesso Universo-->
+                <div class="bloco-pergunta escondido  " id="container_univweb_obter">
+                    <label for="obter-univ"><b>Informe o nome do universo que deseja acessar</b><span
+                            class="obrigatoria">*</span></label>
+                    <input type="text" name="informar-univ" id="obter-univ">
+
+                </div>
+
+                <!--Alterar Universo-->
+                <div class="bloco-pergunta escondido " id="container_univweb_alterar">
+                    <label for="alterar-univ"><b>Descreva a Alteração</b><span class="obrigatoria">*</span></label>
+                    <textarea name="alterar-univ" id="alterar-univ" rows="4"></textarea>
+
+                </div>
+
+                <!--Rich Client-->
+                <div class="bloco-pergunta escondido " id="container_rich">
+                    <label> <b>Selecione o Tipo de Solicitação</b> <span class="obrigatoria">*</span></label>
+
+                    <input type="radio" name="opcao-btn-rich" id="btn_acessoWebRich" onclick="gerenciarFormulario()">
+                    <label for="btn_acessoWebRich">Obter Acesso a WebIntelligence/Rich Client</label>
+                    <input type="radio" name="opcao-btn-rich" id="btn_instalarRich" onclick="gerenciarFormulario()">
+                    <label for="btn_instalarRich"> Instalar Rich Client</label>
+
+
+
+                </div>
+
+                <!--Obter Acesso Web e Rich-->
+                <div class="escondido   " id="container_rich_obter">
+
+                    <!--
+            <div class="bloco-pergunta " >
+                <label for="obter-rich" ><b>Informe o nome da unidade de exercício atual</b><span
+                        class="obrigatoria">*</span></label>
+                <input type="text" name="informar-univ" id="obter-rich">
+
+            </div>
+-->
+                    <div class="bloco-pergunta ">
+
+                        <label for="login-rich"><b>Informe o login</b><span class="obrigatoria">*</span></label>
+                        <input type="text" name="informar-univ" id="login-rich">
+                    </div>
+
+                    <div class="bloco-pergunta ">
+                        <label for="UA-web"><b>UA:</b></label>
+                        <input class="campo-bloqueado" type="text" name="informar-univ" id="UA-web" readonly>
+                        <!--Criar depois uma lógica para aparecer minha UA quando digitar meu login hmnascimento no informe o login.-->
+                    </div>
+
+                </div>
+                <!--Instalar Rich-->
+                <div class="escondido  " id="container_rich_instalar">
+                    <div class="bloco-pergunta ">
+                        <label for="localidade"><b>Selecionar sua localização</b><span
+                                class="obrigatoria">*</span></label>
+                        <div class="opcoes">
+                            <select name="localidade" id="localidade">
+                                <option value="" disabled selected hidden></option>
+                                <option value="Sede">Sede</option>
+                                <option value="Lapa">Lapa</option>
+                                <option value="Tatuape">Tatuape</option>
+                                <option value="Campinas">Campinas</option>
+
+
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="bloco-pergunta    ">
+
+                        <label for="informar-andar"><b>Informe o Andar e a Ala</b><span
+                                class="obrigatoria">*</span></label>
+                        <input type="text" name="informar-login" id="informar-andar">
+                    </div>
+
+                    <div class="bloco-pergunta    ">
+
+                        <label for="informar-login"><b>Informe o Login</b><span class="obrigatoria">*</span></label>
+                        <input type="text" name="informar-login" id="informar-login">
+                    </div>
+
+                    <div class="bloco-pergunta   ">
+
+                        <label for="UA-rich"><b>UA:</b></label>
+                        <input class="campo-bloqueado" type="text" name="informar-univ" id="UA-rich" readonly>
+                        <!--Criar depois uma lógica para aparecer minha UA quando digitar meu login hmnascimento no informe o login.-->
+                    </div>
+
+                    <div class="bloco-pergunta   ">
+
+                        <label for="informar-telefone"><b>Informe um telefone para contato</b><span
+                                class="obrigatoria">*</span></label>
+                        <input type="tel" name="informar-telefone" id="informar-telefone" placeholder="(99) 99999-9999">
+                    </div>
+
+                </div>
+                    </fieldset>
+
+                <div class="botoes-rodape">
+                    <input type="submit" value="Enviar" class="btn-padrao">
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+    <script>
+        function gerenciarFormulario() {
+
+            // Gerenciador de Inputs:
+            //universo
+            const btn_univ_webInteligence = document.getElementById('btn-univ_webInteligence').checked;
+            const btn_criar_universo = document.getElementById('btn-criar_universo').checked;
+            const btn_obter_universo = document.getElementById('btn-obter_universo').checked;
+            const btn_alterar_universo = document.getElementById('btn-alterar_universo').checked;
+
+            //rich
+            const btn_rich = document.getElementById('btn-rich_client').checked;
+            const btn_acessoWebRich = document.getElementById('btn_acessoWebRich').checked;
+            const btn_instalarRich = document.getElementById('btn_instalarRich').checked;
+            const text_ua = document.getElementById('UA-rich'); //Criar depois uma lógica para aparecer minha UA quando digitar meu login hmnascimento no informe o login.
+
+            //Gerenciador de Containers
+
+            // universo
+            const container_univweb = document.getElementById('container_univweb');
+            const container_univweb_criar = document.getElementById('container_univweb_criar');
+            const container_univweb_obter = document.getElementById('container_univweb_obter');
+            const container_univweb_alterar = document.getElementById('container_univweb_alterar');
+
+            const campoLoginWeb =document.getElementById('login-rich');
+            const campoUaWeb=document.getElementById('UA-web');
+
+
+            //rich
+            const container_rich = document.getElementById('container_rich');
+            const container_rich_obter = document.getElementById('container_rich_obter');
+            const container_rich_instalar = document.getElementById('container_rich_instalar');
+
+            const campoLogin = document.getElementById('informar-login');
+            const campoUa = document.getElementById('UA-rich');
+
+
+            //Manter Oculto perguntas secundárias:
+
+            container_univweb.classList.add('escondido');
+            container_rich.classList.add('escondido');
+            container_rich_obter.classList.add('escondido');
+            container_univweb_criar.classList.add('escondido');
+            container_univweb_obter.classList.add('escondido');
+            container_univweb_alterar.classList.add('escondido');
+
+
+            //Condição para aparecer pergunta selecionada
+
+            //Universo e WebIntelligence
+            if (btn_univ_webInteligence) {
+                container_univweb.classList.remove('escondido');
+
+                document.getElementById('btn_acessoWebRich').checked = false
+                document.getElementById('btn_instalarRich').checked = false
+            } else {
+                container_univweb.classList.add('escondido');
+                document.getElementById('btn-criar_universo').checked = false;
+                document.getElementById('btn-obter_universo').checked = false;
+                document.getElementById('btn-alterar_universo').checked = false;
+
+                document.getElementById('informar-univ').value = '';
+                document.getElementById('obter-univ').value = '';
+                document.getElementById('alterar-univ').value = '';
+
+            }
+
+            if (btn_univ_webInteligence && btn_criar_universo) {
+                container_univweb_criar.classList.remove('escondido');
+
+                //document.getElementById('informar-univ').value = '';
+                document.getElementById('obter-univ').value = '';
+                document.getElementById('alterar-univ').value = '';
+
+
+            } else {
+                container_univweb_criar.classList.add('escondido');
+            }
+
+            if (btn_univ_webInteligence && btn_obter_universo) {
+                container_univweb_obter.classList.remove('escondido');
+
+                document.getElementById('informar-univ').value = '';
+                document.getElementById('obter-univ').value = '';
+                document.getElementById('alterar-univ').value = '';
+
+            } else {
+                container_univweb_obter.classList.add('escondido');
+            }
+
+            if (btn_univ_webInteligence && btn_alterar_universo) {
+                container_univweb_alterar.classList.remove('escondido');
+
+            } else {
+                container_univweb_alterar.classList.add('escondido');
+            }
+
+            //Rich Client
+
+            if (btn_rich) {
+                container_rich.classList.remove('escondido');
+            } else {
+                container_rich.classList.add('escondido');
+                document.getElementById('localidade').value = '';
+                document.getElementById('login-rich').value = '';
+                document.getElementById('informar-andar').value = '';
+                document.getElementById('informar-login').value = '';
+                document.getElementById('informar-telefone').value = '';
+
+                document.getElementById('localidade').value = '';
+
+            }
+
+            if (btn_rich && btn_acessoWebRich) {
+
+                container_rich_obter.classList.remove('escondido');
+
+                //document.getElementById('obter-rich').value = '';
+                document.getElementById('login-rich').value = '';
+                document.getElementById('informar-andar').value = '';
+                document.getElementById('informar-login').value = '';
+                document.getElementById('informar-telefone').value = '';
+                document.getElementById('localidade').value = '';
+                document.getElementById('UA-web').value = '';
+                document.getElementById('UA-rich').value = '';
+
+            }
+
+            else {
+
+                container_rich_obter.classList.add('escondido');
+
+            }
+            if (btn_rich && btn_instalarRich) {
+
+                container_rich_instalar.classList.remove('escondido');
+
+            }
+
+            else {
+
+                container_rich_instalar.classList.add('escondido');
+
+            }
+
+            // Função Capturar UA Instalar Rich
+campoLogin.addEventListener('blur', function() {
+                const loginDigitado = campoLogin.value.toLowerCase().trim();
+
+                if(loginDigitado === 'hmnascimento'){
+
+                    campoUa.value= '35241 - ASSISTÊNCIA DE EQUIPAMENTOS APLICAÇÕES AO USUÁRIO';
+
+                }else{
+                    campoUa.value = '';
+                }
+            }
+
+           
+
+        )
+
+
+        campoLoginWeb.addEventListener('blur', function() {
+                const loginDigitadoWeb = campoLoginWeb.value.toLowerCase().trim();
+
+                if(loginDigitadoWeb === 'hmnascimento'){
+
+                    campoUaWeb.value= '35241 - ASSISTÊNCIA DE EQUIPAMENTOS APLICAÇÕES AO USUÁRIO';
+
+                }else{
+                    campoUaWeb.value = '';
+                }
+            }
+
+           
+
+        )
+
+        };
+
+
+
+           
+
+        
+        
+    </script>
+</body>
+</html>
