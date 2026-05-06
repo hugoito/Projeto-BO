@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style2.css">
-    <title>Solicitações Universo e WebIntelligence/Rich Client</title>
+    <title>Solicitações Universo e Rich Client/WebIntelligence</title>
 </head>
 <body>
 
@@ -13,7 +13,7 @@
     <div class="janela-software">
         
         <div class="janela-cabecalho">
-            <span class="janela-titulo">Solicitações Universo e WebIntelligence/Rich Client</span>
+            <span class="janela-titulo">Solicitações Universo e Rich Client/WebIntelligence</span>
             <button class="janela-fechar" onclick="window.location.href='index.html'">X</button>
             
     
@@ -29,9 +29,9 @@
                     <label><b>Selecione a opção desejada</b><span class="obrigatoria">*</span></label>
 
                     <input type="radio" name="opcao-btn" id="btn-univ_webInteligence" onclick="gerenciarFormulario()">
-                    <label for="btn-univ_webInteligence">Universo e WebIntelligence</label>
+                    <label for="btn-univ_webInteligence">Solicitações Universo</label>
                     <input type="radio" name="opcao-btn" id="btn-rich_client" onclick="gerenciarFormulario()">
-                    <label for="btn-rich_client">Rich Client</label>
+                    <label for="btn-rich_client">Rich Client/WebIntelligence</label>
 
                 </div>
                 <!-- Necessário inserir uma condinção para manter abrir as opções referente a univer ou Rich client.-->
@@ -50,10 +50,18 @@
 
                 </div>
                 <!--Criar Universo-->
-                <div class="bloco-pergunta escondido  " id="container_univweb_criar">
+                <div class="escondido  " id="container_univweb_criar">
                     <label for="informar-univ"><b>Informe o nome do universo para a ser criado</b><span
                             class="obrigatoria">*</span></label>
                     <input type="text" name="informar-univ" id="informar-univ">
+                    <br> <br>
+                    <div class="bloco-pergunta ">
+                                <p><b style="color: #ff0000">Instruções:</b> Para a criação de novo Universo no BO Rich
+                                    Client, é obrigatório anexar a
+                                    este chamado a planilha de Dados de Origem e Estrutura. Certifique-se de utilizar o
+                                    modelo padrão disponível aqui. Para maiores informações consulte o SharePoint Universos BO</p>
+
+                            </div>
 
                 </div>
 
