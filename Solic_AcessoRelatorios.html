@@ -16,7 +16,7 @@
 
             <div class="janela-cabecalho">
                 <span class="janela-titulo">Solicitações de Acesso e Execução de Relatórios</span>
-                <button class="janela-fechar" onclick="window.location.href='index.html'">X</button>
+                <button class="janela-fechar">X</button>
 
 
             </div>
@@ -26,6 +26,7 @@
                 <form action="">
                     <fieldset>
 
+                        <!--
                         <div class="bloco-pergunta" id="container-opcao-btn">
 
                             <label><b>Selecione a opção desejada</b><span class="obrigatoria">*</span></label>
@@ -37,23 +38,35 @@
 
                         </div>
 
+                        -->
+
                         <!--Launch Pad -->
-                        <div class="bloco-pergunta escondido " id="container_launch">
+                        <div class="bloco-pergunta  " id="container_launch">
                             <label> <b>Selecione o Tipo de Solicitação</b> <span class="obrigatoria">*</span></label>
 
                             <input type="radio" name="launch_btn" id="launch_btn_acesso"
                                 onclick="gerenciarFormulario()">
                             <label for="launch_btn_acesso">Obter Acesso ao Launch pad</label>
+
                             <input type="radio" name="launch_btn" id="launch_btn_perfil"
                                 onclick="gerenciarFormulario()">
-                            <label for="launch_btn_perfil">Mudar perfil (DRT) Launch pad</label>
+                            <label for="launch_btn_perfil">Alterar Perfil de Acesso ao BO</label>
+
+                            <input type="radio" name="launch_btn" id="relatorio_btn_acesso"
+                                onclick="gerenciarFormulario()">
+                            <label for="relatorio_btn_acesso">Obter Acesso ao relatório Launch pad</label>
+
+                            <input type="radio" name="launch_btn" id="relatorio_btn_exec"
+                                onclick="gerenciarFormulario()">
+                            <label for="relatorio_btn_exec">Solic. Execução relatório Launch pad</label>
+                       
                         </div>
 
 
 
-                        <!--Relatórios-->
-                        <div class="bloco-pergunta escondido " id="container_relatorio">
-                            <label> <b>Selecione o Tipo de Solicitação</b> <span class="obrigatoria">*</span></label>
+                        <!--Relatórios
+                        <div class="bloco-pergunta  " id="container_relatorio">
+                        <label> <b>Selecione o Tipo de Solicitação</b> <span class="obrigatoria">*</span></label>
 
                             <input type="radio" name="relatorio_btn" id="relatorio_btn_acesso"
                                 onclick="gerenciarFormulario()">
@@ -62,7 +75,7 @@
                                 onclick="gerenciarFormulario()">
                             <label for="relatorio_btn_exec">Solic. Execução relatório Launch pad</label>
                         </div>
-
+                    -->
                         <!--Perguntas Forms -->
 
 
@@ -124,13 +137,13 @@
                         //Containers
                         const container_launch = document.getElementById('container_launch');
                         const container_launch_perguntas = document.getElementById('container_launch_perguntas');
-                        const container_relatorio = document.getElementById('container_relatorio');
+                       //const container_relatorio = document.getElementById('container_relatorio');
                         const container_relatorio_pergunta = document.getElementById('container_relatorio_pergunta');
 
-                        const relatorio_btn = document.getElementById('relatorio_btn').checked;
-                        const launch_btn = document.getElementById('launch_btn').checked;
+                        //const relatorio_btn = document.getElementById('relatorio_btn').checked;
+                        //const launch_btn = document.getElementById('launch_btn').checked;
 
-                        if (launch_btn) {
+                        /*if (launch_btn) {  
                             container_launch.classList.remove('escondido');
                             container_relatorio.classList.add('escondido');
 
@@ -146,7 +159,7 @@
                             document.getElementById('launch_btn_perfil').checked = false;
                             document.getElementById('launch_btn_acesso').checked = false;
 
-                        }
+                        } */
                         //botões
 
                         const launch_btn_perfil = document.getElementById('launch_btn_perfil').checked;
@@ -156,21 +169,29 @@
                         const relatorio_btn_acesso = document.getElementById('relatorio_btn_acesso').checked;
 
 
-                        if (launch_btn_perfil || launch_btn_acesso || relatorio_btn_acesso || relatorio_btn_exec) {
+                        if (launch_btn_perfil || launch_btn_acesso) {
                             container_launch_perguntas.classList.remove('escondido');
+                            container_relatorio_pergunta.classList.add('escondido');
+                             document.getElementById('informar_relatorio').value = '';
+
+                             document.getElementById('informar_login').value = '';
+                            document.getElementById('informar_UA').value = '';
+                            document.getElementById('localidade').value = '';
 
 
 
                         } else {
-                            container_launch_perguntas.classList.add('escondido');
+                            container_relatorio_pergunta.classList.remove('escondido');
+                            container_launch_perguntas.classList.remove('escondido');
 
                             document.getElementById('informar_login').value = '';
                             document.getElementById('informar_UA').value = '';
                             document.getElementById('localidade').value = '';
+                            document.getElementById('informar_relatorio').value = '';
                         }
 
 
-                        if (relatorio_btn_acesso || relatorio_btn_exec) {
+                        /*if (relatorio_btn_acesso || relatorio_btn_exec) {
 
                             container_relatorio_pergunta.classList.remove('escondido');
 
@@ -178,6 +199,7 @@
                             container_relatorio_pergunta.classList.add('escondido');
                             document.getElementById('informar_relatorio').value = '';
                         }
+                            */
 
 
                     }
